@@ -1,0 +1,3269 @@
+{
+ "version": 1,
+ "cases": [
+  {
+   "name": "linear5/default",
+   "commits": [
+    {
+     "hash": "L0",
+     "parents": [
+      "L1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L1",
+     "parents": [
+      "L2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L2",
+     "parents": [
+      "L3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L3",
+     "parents": [
+      "L4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L4",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "L2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 32,
+    "height": 120,
+    "paths": [
+     {
+      "d": "M16,12.0L16,108.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 108,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "linear5/expandedRow1",
+   "commits": [
+    {
+     "hash": "L0",
+     "parents": [
+      "L1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L1",
+     "parents": [
+      "L2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L2",
+     "parents": [
+      "L3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L3",
+     "parents": [
+      "L4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L4",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "L2",
+    "expandedRow": 1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 32,
+    "height": 370,
+    "paths": [
+     {
+      "d": "M16,12.0L16,358.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 310,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 334,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 358,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "linear5/firstParentOnly",
+   "commits": [
+    {
+     "hash": "L0",
+     "parents": [
+      "L1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L1",
+     "parents": [
+      "L2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L2",
+     "parents": [
+      "L3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L3",
+     "parents": [
+      "L4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L4",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "L2",
+    "expandedRow": -1,
+    "firstParentOnly": true,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 32,
+    "height": 120,
+    "paths": [
+     {
+      "d": "M16,12.0L16,108.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 108,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "linear5/angular",
+   "commits": [
+    {
+     "hash": "L0",
+     "parents": [
+      "L1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L1",
+     "parents": [
+      "L2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L2",
+     "parents": [
+      "L3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L3",
+     "parents": [
+      "L4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "L4",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "L2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "angular"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 32,
+    "height": 120,
+    "paths": [
+     {
+      "d": "M16,12.0L16,108.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 108,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "diamond/default",
+   "commits": [
+    {
+     "hash": "D0",
+     "parents": [
+      "D1",
+      "D2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D1",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D2",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "D3",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 48,
+    "height": 96,
+    "paths": [
+     {
+      "d": "M16,12.0L16,84.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,60.0C32,79.2 16,64.8 16,84.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 60,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "diamond/expandedRow1",
+   "commits": [
+    {
+     "hash": "D0",
+     "parents": [
+      "D1",
+      "D2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D1",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D2",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "D3",
+    "expandedRow": 1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 48,
+    "height": 346,
+    "paths": [
+     {
+      "d": "M16,12.0L16,334.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,310.0C32,329.2 16,314.8 16,334.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 310,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 334,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "diamond/firstParentOnly",
+   "commits": [
+    {
+     "hash": "D0",
+     "parents": [
+      "D1",
+      "D2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D1",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D2",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "D3",
+    "expandedRow": -1,
+    "firstParentOnly": true,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 48,
+    "height": 96,
+    "paths": [
+     {
+      "d": "M16,12.0L16,84.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,60.0C32,79.2 16,64.8 16,84.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 60,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "diamond/angular",
+   "commits": [
+    {
+     "hash": "D0",
+     "parents": [
+      "D1",
+      "D2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D1",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D2",
+     "parents": [
+      "D3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "D3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "D3",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "angular"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 48,
+    "height": 96,
+    "paths": [
+     {
+      "d": "M16,12.0L16,84.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0L32,26.9L32,36.0L32,60.0L32,69.1L16,84.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 60,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "braided/default",
+   "commits": [
+    {
+     "hash": "b0",
+     "parents": [
+      "b1",
+      "b4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b1",
+     "parents": [
+      "b2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b2",
+     "parents": [
+      "b3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b3",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b4",
+     "parents": [
+      "b5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b5",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b6",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b7",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "b2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     46,
+     46,
+     46,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     2,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 192,
+    "paths": [
+     {
+      "d": "M16,12.0L16,180.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,156.0C32,175.2 16,160.8 16,180.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,156.0C48,175.2 16,160.8 16,180.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 156,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 180,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "braided/expandedRow1",
+   "commits": [
+    {
+     "hash": "b0",
+     "parents": [
+      "b1",
+      "b4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b1",
+     "parents": [
+      "b2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b2",
+     "parents": [
+      "b3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b3",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b4",
+     "parents": [
+      "b5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b5",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b6",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b7",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "b2",
+    "expandedRow": 1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     46,
+     46,
+     46,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     2,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 442,
+    "paths": [
+     {
+      "d": "M16,12.0L16,430.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,406.0C32,425.2 16,410.8 16,430.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,406.0C48,425.2 16,410.8 16,430.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 310,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 334,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 358,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 382,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 406,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 430,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "braided/firstParentOnly",
+   "commits": [
+    {
+     "hash": "b0",
+     "parents": [
+      "b1",
+      "b4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b1",
+     "parents": [
+      "b2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b2",
+     "parents": [
+      "b3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b3",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b4",
+     "parents": [
+      "b5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b5",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b6",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b7",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "b2",
+    "expandedRow": -1,
+    "firstParentOnly": true,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     46,
+     46,
+     46,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     2,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 192,
+    "paths": [
+     {
+      "d": "M16,12.0L16,180.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,156.0C32,175.2 16,160.8 16,180.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,156.0C48,175.2 16,160.8 16,180.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 156,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 180,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "braided/angular",
+   "commits": [
+    {
+     "hash": "b0",
+     "parents": [
+      "b1",
+      "b4"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b1",
+     "parents": [
+      "b2"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b2",
+     "parents": [
+      "b3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b3",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b4",
+     "parents": [
+      "b5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b5",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b6",
+     "parents": [
+      "b7"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "b7",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "b2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "angular"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     46,
+     46,
+     46,
+     46,
+     46,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     2,
+     0
+    ],
+    "muted": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 192,
+    "paths": [
+     {
+      "d": "M16,12.0L16,180.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0L32,26.9L32,36.0L32,156.0L32,165.1L16,180.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,156.0L48,165.1L16,180.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 156,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 180,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withStash/default",
+   "commits": [
+    {
+     "hash": "s0",
+     "parents": [
+      "s1",
+      "si",
+      "su"
+     ],
+     "stash": {
+      "selector": "stash@{0}",
+      "baseHash": "s1"
+     },
+     "stashInternal": null
+    },
+    {
+     "hash": "si",
+     "parents": [
+      "s1"
+     ],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "index"
+     }
+    },
+    {
+     "hash": "su",
+     "parents": [],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "untracked"
+     }
+    },
+    {
+     "hash": "s1",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s2",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "s1",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     62,
+     62,
+     30,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     -1,
+     -1,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 144,
+    "paths": [
+     {
+      "d": "M16,12.0L16,132.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,60.0C32,79.2 16,64.8 16,84.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M16,12.0C16,31.2 48,16.8 48,36.0L48,60.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M32,108.0C32,127.2 16,112.8 16,132.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": true,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 36,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 60,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 132,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withStash/expandedRow1",
+   "commits": [
+    {
+     "hash": "s0",
+     "parents": [
+      "s1",
+      "si",
+      "su"
+     ],
+     "stash": {
+      "selector": "stash@{0}",
+      "baseHash": "s1"
+     },
+     "stashInternal": null
+    },
+    {
+     "hash": "si",
+     "parents": [
+      "s1"
+     ],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "index"
+     }
+    },
+    {
+     "hash": "su",
+     "parents": [],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "untracked"
+     }
+    },
+    {
+     "hash": "s1",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s2",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "s1",
+    "expandedRow": 1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     62,
+     62,
+     30,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     -1,
+     -1,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 394,
+    "paths": [
+     {
+      "d": "M16,12.0L16,382.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,310.0C32,329.2 16,314.8 16,334.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M16,12.0C16,31.2 48,16.8 48,36.0L48,310.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M32,358.0C32,377.2 16,362.8 16,382.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": true,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 36,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 310,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 334,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 358,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 382,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withStash/firstParentOnly",
+   "commits": [
+    {
+     "hash": "s0",
+     "parents": [
+      "s1",
+      "si",
+      "su"
+     ],
+     "stash": {
+      "selector": "stash@{0}",
+      "baseHash": "s1"
+     },
+     "stashInternal": null
+    },
+    {
+     "hash": "si",
+     "parents": [
+      "s1"
+     ],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "index"
+     }
+    },
+    {
+     "hash": "su",
+     "parents": [],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "untracked"
+     }
+    },
+    {
+     "hash": "s1",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s2",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "s1",
+    "expandedRow": -1,
+    "firstParentOnly": true,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     62,
+     62,
+     30,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     -1,
+     -1,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 144,
+    "paths": [
+     {
+      "d": "M16,12.0L16,132.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0C16,31.2 32,16.8 32,36.0L32,60.0C32,79.2 16,64.8 16,84.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M16,12.0C16,31.2 48,16.8 48,36.0L48,60.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M32,108.0C32,127.2 16,112.8 16,132.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": true,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 36,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 60,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 132,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withStash/angular",
+   "commits": [
+    {
+     "hash": "s0",
+     "parents": [
+      "s1",
+      "si",
+      "su"
+     ],
+     "stash": {
+      "selector": "stash@{0}",
+      "baseHash": "s1"
+     },
+     "stashInternal": null
+    },
+    {
+     "hash": "si",
+     "parents": [
+      "s1"
+     ],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "index"
+     }
+    },
+    {
+     "hash": "su",
+     "parents": [],
+     "stash": null,
+     "stashInternal": {
+      "selector": "stash@{0}",
+      "kind": "untracked"
+     }
+    },
+    {
+     "hash": "s1",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s2",
+     "parents": [
+      "s3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "s3",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "s1",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "angular"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     62,
+     62,
+     30,
+     46,
+     30
+    ],
+    "rowSlots": [
+     0,
+     -1,
+     -1,
+     0,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 144,
+    "paths": [
+     {
+      "d": "M16,12.0L16,132.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,12.0L32,26.9L32,36.0L32,60.0L32,69.1L16,84.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M16,12.0L48,26.9L48,36.0L48,60.0",
+      "colour": "#808080",
+      "committed": true,
+      "dashed": true
+     },
+     {
+      "d": "M32,108.0L32,117.1L16,132.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": true,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 36,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 60,
+      "colour": "#808080",
+      "current": false,
+      "stash": false,
+      "stashInternal": true,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 108,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 132,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withUncommitted/default",
+   "commits": [
+    {
+     "hash": "UNCOMMITTED",
+     "parents": [
+      "u1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u1",
+     "parents": [
+      "u2",
+      "u5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u2",
+     "parents": [
+      "u3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u3",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u4",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u5",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u6",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "u2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     46,
+     46,
+     62,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 168,
+    "paths": [
+     {
+      "d": "M16,12.0L16,36.0",
+      "colour": "#808080",
+      "committed": false,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0L16,156.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0C16,55.2 32,40.8 32,60.0L32,132.0C32,151.2 16,136.8 16,156.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,108.0L48,132.0C48,151.2 16,136.8 16,156.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#808080",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": false
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 108,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 156,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withUncommitted/expandedRow1",
+   "commits": [
+    {
+     "hash": "UNCOMMITTED",
+     "parents": [
+      "u1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u1",
+     "parents": [
+      "u2",
+      "u5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u2",
+     "parents": [
+      "u3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u3",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u4",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u5",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u6",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "u2",
+    "expandedRow": 1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     46,
+     46,
+     62,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 418,
+    "paths": [
+     {
+      "d": "M16,12.0L16,36.0",
+      "colour": "#808080",
+      "committed": false,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0L16,406.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0C16,55.2 32,40.8 32,60.0L32,382.0C32,401.2 16,386.8 16,406.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,358.0L48,382.0C48,401.2 16,386.8 16,406.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#808080",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": false
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 310,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 334,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 358,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 382,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 406,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withUncommitted/firstParentOnly",
+   "commits": [
+    {
+     "hash": "UNCOMMITTED",
+     "parents": [
+      "u1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u1",
+     "parents": [
+      "u2",
+      "u5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u2",
+     "parents": [
+      "u3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u3",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u4",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u5",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u6",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "u2",
+    "expandedRow": -1,
+    "firstParentOnly": true,
+    "muteMerges": true,
+    "style": "rounded"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     46,
+     46,
+     62,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 168,
+    "paths": [
+     {
+      "d": "M16,12.0L16,36.0",
+      "colour": "#808080",
+      "committed": false,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0L16,156.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0C16,55.2 32,40.8 32,60.0L32,132.0C32,151.2 16,136.8 16,156.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,108.0L48,132.0C48,151.2 16,136.8 16,156.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#808080",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": false
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 108,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 156,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "withUncommitted/angular",
+   "commits": [
+    {
+     "hash": "UNCOMMITTED",
+     "parents": [
+      "u1"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u1",
+     "parents": [
+      "u2",
+      "u5"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u2",
+     "parents": [
+      "u3"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u3",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u4",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u5",
+     "parents": [
+      "u6"
+     ],
+     "stash": null,
+     "stashInternal": null
+    },
+    {
+     "hash": "u6",
+     "parents": [],
+     "stash": null,
+     "stashInternal": null
+    }
+   ],
+   "options": {
+    "head": "u2",
+    "expandedRow": -1,
+    "firstParentOnly": false,
+    "muteMerges": true,
+    "style": "angular"
+   },
+   "expected": {
+    "rowWidths": [
+     30,
+     30,
+     46,
+     46,
+     62,
+     62,
+     30
+    ],
+    "rowSlots": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     1,
+     0
+    ],
+    "muted": [
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false
+    ],
+    "contentWidth": 64,
+    "height": 168,
+    "paths": [
+     {
+      "d": "M16,12.0L16,36.0",
+      "colour": "#808080",
+      "committed": false,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0L16,156.0",
+      "colour": "#0085d9",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M16,36.0L32,50.9L32,60.0L32,132.0L32,141.1L16,156.0",
+      "colour": "#d9008f",
+      "committed": true,
+      "dashed": false
+     },
+     {
+      "d": "M48,108.0L48,132.0L48,141.1L16,156.0",
+      "colour": "#00d90a",
+      "committed": true,
+      "dashed": false
+     }
+    ],
+    "points": [
+     {
+      "x": 16,
+      "y": 12,
+      "colour": "#808080",
+      "current": true,
+      "stash": false,
+      "stashInternal": false,
+      "committed": false
+     },
+     {
+      "x": 16,
+      "y": 36,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 60,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 84,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 48,
+      "y": 108,
+      "colour": "#00d90a",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 32,
+      "y": 132,
+      "colour": "#d9008f",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     },
+     {
+      "x": 16,
+      "y": 156,
+      "colour": "#0085d9",
+      "current": false,
+      "stash": false,
+      "stashInternal": false,
+      "committed": true
+     }
+    ]
+   }
+  }
+ ]
+}
