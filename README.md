@@ -1,44 +1,132 @@
-# DSH Git Graph
+<p align="center"><strong>DSH Git Graph</strong> is a VS Code-style Git graph plugin for <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a> — commit history, branch actions and inline diffs, inside a session tab.</p>
 
-在 DeepSeek Harness 的会话中打开 **Git Graph** 页签，查看当前工作目录的提交历史。图谱用彩色分支线和圆环标出分叉、合并和当前提交。
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Si-xiyu/dsh-git-graph/main/docs/assets/screenshot-en.png" alt="DSH Git Graph: commit graph with branch pills, stash entries, commit details and diffs" width="92%" />
+</p>
 
-- 单击提交查看文件和差异。
-- 右键本地分支标签并选择「切换到」，也可以双击标签。切换后刷新图谱和分支标记。
-- 右键提交并选择「从此提交新建分支…」，输入名字后创建分支。
-- 如果未提交的改动会被覆盖，Git 会拒绝切换，面板会显示 Git 返回的原因。
+<p align="center">English | <a href="README.zh.md">简体中文</a></p>
 
-## 安装到 DSH Desktop
+---
 
-需要已安装 DSH Desktop（`>= 0.1.0-rc.5`）以及 `git`。插件同时有宿主端和客户端两半，不能脱离 DSH 单独运行。
+DSH Git Graph turns the repository of the current session into a commit graph you can work on
+without leaving the chat page: switch, create and delete branches, merge, rebase, reset,
+cherry-pick, tag, stash, push and pull — with an inline commit details view and a diff drawer.
 
-**从分发包安装**：打开 **设置 → 插件**，安装来源选「压缩包」，填 `dsh-vsc-git-graph-<版本>.tgz` 的绝对路径；装完启用并重启 DSH Desktop。
-详细的图文步骤见 [`docs/TRIAL-INSTALL.md`](docs/TRIAL-INSTALL.md)。
+## Features
 
-**从源码目录安装**（开发时）：
+- **Commit graph** — branch-coloured lanes with per-row width, correct merge and side-branch
+  routing. Stash commits (including their internal `index` / `untracked` entries) and the
+  uncommitted-changes row are drawn distinctly; commits outside the checked-out branch are muted.
+- **Reference pills** — local branches, remote branches and tags as compact pills, with the
+  checked-out branch highlighted. Hover for a tooltip, double-click to check out.
+- **Inline commit details** — author, committer, date, parents and the full message on the left;
+  changed files with `+n / -n` on the right. Click a file to open its diff.
+- **Diff drawer** — a resizable bottom panel with virtualised scrolling, per-file grouping and
+  add/delete highlighting.
+- **History actions** — checkout, create, rename, delete (optionally on remotes), merge, rebase,
+  reset (soft / mixed / hard), cherry-pick, revert, drop a commit.
+- **Tags and stashes** — create annotated or lightweight tags (optionally pushed), delete them
+  locally or on a remote; push, apply, pop and drop stashes.
+- **Remotes** — fetch (with prune options), push (normal / force-with-lease / force, set upstream),
+  pull a specific remote branch.
+- **Search and keyboard** — `Ctrl/⌘+F` search with highlighting, `Ctrl/⌘+R` refresh, `Ctrl/⌘+H`
+  jump to HEAD, arrow keys to move (`Ctrl` / `Ctrl+Shift` for first / alternative parent–child).
+- **Multiple repositories** — discovers repositories under the session directory and lets you switch.
+- **Bilingual UI** — follows the host language, switchable in Preferences, remembered locally.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Si-xiyu/dsh-git-graph/main/docs/assets/screenshot-zh.png" alt="Chinese interface" width="62%" />
+  <img src="https://raw.githubusercontent.com/Si-xiyu/dsh-git-graph/main/docs/assets/screenshot-graph.png" alt="Graph detail: muted commits and lane colours" width="30%" />
+</p>
+
+## Quickstart
+
+### Install with the DSH CLI (recommended)
 
 ```sh
-dsh plugin --profile desktop add /绝对路径/dsh-git-graph
+dsh plugin --profile desktop add dsh-vsc-git-graph
 ```
 
-重新打开 DSH Desktop 后，在一个 Git 工作目录的会话中打开 **Git Graph**。
+Restart DSH Desktop, open a session inside a Git repository, and select the **Git Graph** tab.
 
-## 开发
+### Install from a tarball (offline)
 
-运行 `npm test`。测试需要 Git 和 Node.js 20 或以上版本。
+```sh
+npm run dist
+```
 
-改完 `src/` 后运行 `npm run build` 生成 `lib/client.js`（客户端产物入库，别手改）。
-`npm run dist` 会先构建再把分发包打进 `dist/dsh-vsc-git-graph-<版本>.tgz`。
+Then **Settings → Plugins → install from archive** and pick `dist/dsh-vsc-git-graph-<version>.tgz`.
 
+### Install from source
 
-## 许可与来源
+```sh
+git clone https://github.com/Si-xiyu/dsh-git-graph.git
+dsh plugin --profile desktop add ./dsh-git-graph
+```
 
-本项目自己的代码以 MIT 发布（见 [LICENSE](LICENSE)，版权人 `Si-xiyu`）。
+<details>
+<summary>Install from the plugin market</summary>
 
-- 基线来自 [enoughpower/dsh-git-graph](https://github.com/enoughpower/dsh-git-graph)（MIT），
-  许可原文存于 [`licenses/`](licenses/)。
-- 图谱与交互行为参照 [VS Code Git Graph](https://github.com/mhutchie/vscode-git-graph)：
-  `src/graph.js` 是按 [`docs/GRAPH-SPEC.md`](docs/GRAPH-SPEC.md) 的行为规格独立实现的，
-  行为刻意与参考实现保持一致（保证视觉一致），但源码文本不构成复制
-  （与本仓库早期的移植版相比：完全相同的代码行 11 行、均为语法行；上游特有标识符 0 处）。
-- 旧移植版本已从仓库历史中整体移除，当前历史只包含独立实现。
-- 逐路径的归属与许可原文见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+Once the plugin is listed in the [DSH plugin catalog](https://awesome-dsh-plugin.com), it can also be
+installed from **Settings → Plugins → Discover** (dsh 0.2.1+). Add
+`https://cdn.jsdelivr.net/npm/dsh-plugin-catalog/index.json` as an index source if the Discover tab is
+empty.
+
+</details>
+
+### Let your agent install it
+
+Paste this into your agent:
+
+```text
+Install the DSH Git Graph plugin from https://github.com/Si-xiyu/dsh-git-graph into my
+DeepSeek Harness desktop profile.
+
+1. Check prerequisites: `git --version` works, and `dsh --version` is >= 0.1.0-rc.5.
+2. Install from npm: `dsh plugin --profile desktop add dsh-vsc-git-graph`.
+3. If the npm registry is unreachable, clone the repo and install the local path instead:
+   `git clone https://github.com/Si-xiyu/dsh-git-graph.git` then
+   `dsh plugin --profile desktop add <absolute-path-to-the-clone>`.
+4. Restart DSH Desktop, open a session inside a Git repository, and confirm a "Git Graph"
+   tab appears in the session tab bar.
+5. If anything fails, report the exact command, its stderr, and the `dsh` version.
+```
+
+Machine-readable install notes for agents: [AGENTS.md](AGENTS.md).
+
+## Usage
+
+- Open the **Git Graph** tab in a session — the graph follows that session's working directory.
+- Click a commit to expand its details; click a file to open the diff drawer.
+- Right-click a branch pill, commit, tag or stash for its actions.
+- Double-click a branch pill to check it out.
+
+## Requirements
+
+- DeepSeek Harness Desktop ≥ 0.1.0-rc.5
+- `git` on your `PATH`
+- Node.js ≥ 20 (development and build only)
+
+## Development
+
+```sh
+npm install
+npm run build   # src/ -> lib/client.js (single-file client bundle)
+npm test        # host + graph-engine + client bundle tests
+npm run dist    # distributable tarball
+```
+
+The graph layout engine lives in `src/graph.js` and is specified behaviourally in
+[`docs/GRAPH-SPEC.md`](docs/GRAPH-SPEC.md).
+
+## License & credits
+
+Released under the [MIT License](LICENSE) (© Si-xiyu).
+
+- Baseline: [enoughpower/dsh-git-graph](https://github.com/enoughpower/dsh-git-graph) (MIT), license
+  text in [`licenses/`](licenses/).
+- The graph and its interactions are modelled after
+  [VS Code Git Graph](https://github.com/mhutchie/vscode-git-graph). `src/graph.js` is an
+  independent implementation written against a behavioural specification: behaviour matches the
+  reference for visual parity, while the source text is not a copy.
+- Per-path attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
