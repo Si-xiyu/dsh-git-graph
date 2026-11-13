@@ -123,13 +123,52 @@ test('构建产物可解析并注册正确模块',()=>{
   let registration;
   new Function('window',bundle)({__ModuleLoader__:{load:value=>registration=value}});
   const empty=()=>{};
-  const loaded=registration.factory(name=>name==='react/jsx-runtime'?{jsx:empty,jsxs:empty,Fragment:empty}:{});
+  const loaded=registration.factory(name=>name==='react/jsx-runtime'?{jsx:empty,jsxs:empty,Fragment:empty}:name==='react'?{Component:class {}}:{});
   assert.deepEqual(loaded.inject,['slots','locale']);
   let slot;
   loaded.apply({slots:{inject:(name,f)=>{assert.equal(name,'conversation.view');f();},register:(options,component)=>{slot=options;assert.equal(typeof component,'function');}}});
   assert.equal(slot.id,'vsc-git-graph');assert.equal(slot.order,21);assert.equal(slot.label(),'Git Graph');assert.deepEqual(slot.inject(),{});
 });
 
+test('registered view contains failures locally and offers a fresh mount on retry', () => {
+  let registration, slotView;
+  new Function('window', bundle)({__ModuleLoader__: {load: value => { registration = value; }}});
+  class Component {
+    constructor(props) { this.props = props; }
+    setState(update) { this.state = {...this.state, ...(typeof update === 'function' ? update(this.state) : update)}; }
+  }
+  const jsx = (type, props, key) => ({type, props, key});
+  const loaded = registration.factory(name => name === 'react' ? {Component}
+    : name === 'react/jsx-runtime' ? {jsx, jsxs: jsx} : {});
+  loaded.apply({
+    locale: {getLocale: () => ({active: 'en'})},
+    slots: {inject: (_, callback) => callback(), register: (_, view) => { slotView = view; }},
+  });
+  const element = slotView({sessionId: 'session'});
+  const Boundary = element.type;
+  assert.ok(Boundary.prototype instanceof Component);
+  const boundary = new Boundary(element.props);
+  const first = boundary.render();
+  assert.equal(typeof first.type, 'function');
+  const failure = new TypeError('test render failure');
+  boundary.state = {...boundary.state, ...Boundary.getDerivedStateFromError(failure)};
+  const failed = boundary.render();
+  assert.equal(failed.props['data-git-view'], true);
+  assert.ok(failed.props.children.some(node => node.props.role === 'alert'));
+  assert.ok(failed.props.children.some(node => node.props.children === failure.message));
+  const originalError = console.error;
+  const errors = [];
+  console.error = (...args) => errors.push(args);
+  try { boundary.componentDidCatch(failure, {componentStack: 'test stack'}); }
+  finally { console.error = originalError; }
+  assert.equal(errors[0][1], failure);
+  assert.equal(errors[0][2], 'test stack');
+  failed.props.children.find(node => node.type === 'button').props.onClick();
+  const retried = boundary.render();
+  assert.equal(retried.type, first.type);
+  assert.notEqual(retried.key, first.key);
+  assert.equal(slotView({sessionId: 'other'}).key, 'other');
+});
 test('源码与运行时兼容红线保留',async()=>{
   for(const name of sourceNames){const text=await read('src/'+name+'.js');assert.ok(text.trim().length>50);assert.doesNotMatch(text,/\bimport\s|export default/);}
   assert.match(view,/props\.sessionId \|\| s\.current/);
