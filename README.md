@@ -50,7 +50,7 @@ dsh plugin --profile desktop add dsh-vsc-git-graph
 Restart DSH Desktop, open a session inside a Git repository, and select the **Git Graph** tab.
 
 ### Install from a tarball (offline)
-
+In root
 ```sh
 npm run dist
 ```
@@ -89,7 +89,6 @@ DeepSeek Harness desktop profile.
    `dsh plugin --profile desktop add <absolute-path-to-the-clone>`.
 4. Restart DSH Desktop, open a session inside a Git repository, and confirm a "Git Graph"
    tab appears in the session tab bar.
-5. If anything fails, report the exact command, its stderr, and the `dsh` version.
 ```
 
 Machine-readable install notes for agents: [AGENTS.md](AGENTS.md).

@@ -43,7 +43,7 @@ dsh plugin --profile desktop add dsh-vsc-git-graph
 重启 DSH Desktop，在 Git 仓库里的会话中打开 **Git Graph** 页签。
 
 ### 用压缩包安装（离线）
-
+在项目根目录
 ```sh
 npm run dist
 ```
@@ -78,7 +78,6 @@ dsh plugin --profile desktop add ./dsh-git-graph
 3. 如果 npm registry 不可达，改为本地安装：先 `git clone https://github.com/Si-xiyu/dsh-git-graph.git`，
    再 `dsh plugin --profile desktop add <克隆目录的绝对路径>`。
 4. 重启 DSH Desktop，在 Git 仓库里的会话中确认页签栏出现 "Git Graph"。
-5. 任何一步失败，请把完整命令、stderr 与 `dsh` 版本告诉我。
 ```
 
 给 agent 的机器可读安装说明：[AGENTS.md](AGENTS.md)。
