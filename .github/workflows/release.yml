@@ -48,6 +48,16 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: true
 
+      - name: Detect npm token
+        id: npm
+        run: |
+          if [ -n "${NODE_AUTH_TOKEN}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "NPM_TOKEN secret not set — skipping npm publish."
+          fi
+
       - name: Publish to npm
-        if: env.NODE_AUTH_TOKEN != ''
+        if: steps.npm.outputs.present == 'true'
         run: npm publish --access public --provenance
