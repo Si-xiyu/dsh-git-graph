@@ -565,8 +565,10 @@ export function GitGraphView(props) {
       // 刷新让旧详情 / 文件 diff 请求失效后，仍展开的详情要重新拉取当前提交。
       if (keepDetails && detailToken === detailRequest.current) {
         const commit = (value.commits || []).find((c) => c.hash === keepDetails.hash)
-          || { hash: keepDetails.hash };
-        if (keepDetails.compare) await showDetails(commit, true, keepDetails.compare.a);
+          // 分页响应只有新一页，展开的提交通常还在已加载的页里。
+          || (more ? data.commits.find((c) => c.hash === keepDetails.hash) : null);
+        if (!commit) closeDetails();
+        else if (keepDetails.compare) await showDetails(commit, true, keepDetails.compare.a);
         else await showDetails(commit);
       }
     } catch (e) {

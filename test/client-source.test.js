@@ -11,13 +11,110 @@ const bundle = await read('lib/client.js');
 const view = await read('src/view.js');
 const styles = await read('src/styles.js');
 const build = await read('scripts/build.mjs');
+const diff=await read('src/diff.js');
+const graph=await read('src/graph.js');
 function helpers(react = {}) {
   const jsx=(type,props,key)=>({type,props,key});
   const runtime={useState:initial=>[typeof initial==='function'?initial():initial,()=>{}],useRef:()=>({current:null}),useMemo:f=>f(),useLayoutEffect:()=>{},useEffect:()=>{},...react};
   return new Function('require', (graph+'\n'+view+'\n'+diff).replace(/^\s*export /gm,'')+'\nreturn {gitCall,FormDialog,CommitDetails,DiffView,parseDiffText,GitGraphView,RepoBar,repoLabel,mergeRepositories,tooltipPills};')(name=>name==='react'?runtime:name==='react/jsx-runtime'?{jsx,jsxs:jsx,Fragment:'fragment'}:{});
 }
-const diff=await read('src/diff.js');
-const graph=await read('src/graph.js');
+
+function viewHarness(data) {
+  const hooks = [];
+  let cursor = 0;
+  const {GitGraphView, CommitDetails} = helpers({
+    useState(initial) {
+      const i = cursor++;
+      if (!(i in hooks)) {
+        const value = typeof initial === 'function' ? initial() : initial;
+        hooks[i] = value?.commits ? data : value;
+      }
+      return [hooks[i], value => { hooks[i] = typeof value === 'function' ? value(hooks[i]) : value; }];
+    },
+    useRef(initial) {
+      const i = cursor++;
+      if (!(i in hooks)) hooks[i] = {current: initial};
+      return hooks[i];
+    },
+  });
+  const flatten = node => !node || typeof node !== 'object' ? [] : Array.isArray(node)
+    ? node.flatMap(flatten) : [node, ...flatten(node.props?.children)];
+  return {
+    render() {
+      cursor = 0;
+      const nodes = flatten(GitGraphView({
+        sessionId: 'slot', locale: {getLocale: () => ({active: 'en'})},
+        useSessions: select => select({byId: {slot: {cwd: 'E:/repo'}}}),
+      }));
+      // Exercise the child render too: the old tests only inspected JSX objects.
+      for (const node of nodes) if (node.type === CommitDetails) CommitDetails(node.props);
+      return nodes;
+    },
+  };
+}
+
+test('refresh closes a comparison whose selected commit disappeared; pagination stays renderable', async () => {
+  const commit = hash => ({hash, parents: [], author: 'a', email: 'a@b', date: 1, message: hash, heads: [], remotes: [], tags: []});
+  const a = commit('a'), b = commit('b');
+  const graphData = commits => ({commits, head: 'b', headBranch: 'main', remotes: [], moreAvailable: true});
+  const app = viewHarness(graphData([a, b]));
+  const original = globalThis.fetch;
+  const requests = [];
+  let nextGraph = graphData([b]);
+  globalThis.fetch = async (_, options) => {
+    const payload = JSON.parse(options.body);
+    requests.push(payload);
+    const value = payload.op === 'graph' ? nextGraph : payload.op === 'branches'
+      ? {branches: []} : payload.op === 'compare' ? {files: []}
+      : {commit: a, files: []};
+    return {json: async () => ({ok: true, value})};
+  };
+  const row = (nodes, hash) => nodes.find(n => n.type === 'tr' && n.key === hash);
+  try {
+    await row(app.render(), 'b').props.onClick({});
+    await row(app.render(), 'a').props.onClick({ctrlKey: true});
+    const nodes = app.render();
+    await nodes.find(n => n.props?.title === 'Refresh (Ctrl+R)').props.onClick();
+    app.render();
+    nextGraph = graphData([a]);
+    await app.render().find(n => n.type === 'button' && n.props.children === 'Load more commits').props.onClick();
+    const after = app.render();
+    assert.ok(!after.some(n => n.props?.className === 'cdvRow'));
+    assert.equal(requests.filter(r => r.op === 'compare').length, 1);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
+test('loading another page keeps an expanded comparison renderable while its request is pending', async () => {
+  const commit = hash => ({hash, parents: [], author: 'a', email: 'a@b', date: 1, message: hash, heads: [], remotes: [], tags: []});
+  const a = commit('a'), b = commit('b'), c = commit('c');
+  const app = viewHarness({commits: [a, b], head: 'a', remotes: [], moreAvailable: true});
+  const original = globalThis.fetch;
+  let comparisons = 0, finishCompare, pending;
+  globalThis.fetch = async (_, options) => {
+    const p = JSON.parse(options.body);
+    if (p.op === 'compare' && ++comparisons === 2) {
+      await new Promise(resolve => { finishCompare = resolve; });
+    }
+    const value = p.op === 'graph' ? {commits: [c], head: 'a', remotes: [], moreAvailable: false}
+      : p.op === 'compare' ? {files: []} : {commit: b, files: []};
+    return {json: async () => ({ok: true, value})};
+  };
+  const row = (nodes, hash) => nodes.find(n => n.type === 'tr' && n.key === hash);
+  try {
+    await row(app.render(), 'b').props.onClick({});
+    await row(app.render(), 'a').props.onClick({ctrlKey: true});
+    pending = app.render().find(n => n.type === 'button' && n.props.children === 'Load more commits').props.onClick();
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(typeof finishCompare, 'function');
+    assert.doesNotThrow(() => app.render());
+  } finally {
+    finishCompare?.();
+    await pending;
+    globalThis.fetch = original;
+  }
+});
 test('构建产物可解析并注册正确模块',()=>{
   new Function(bundle);
   assert.match(bundle,/window\.__ModuleLoader__\.load/);
@@ -26,11 +123,51 @@ test('构建产物可解析并注册正确模块',()=>{
   let registration;
   new Function('window',bundle)({__ModuleLoader__:{load:value=>registration=value}});
   const empty=()=>{};
-  const loaded=registration.factory(name=>name==='react/jsx-runtime'?{jsx:empty,jsxs:empty,Fragment:empty}:{});
+  const loaded=registration.factory(name=>name==='react/jsx-runtime'?{jsx:empty,jsxs:empty,Fragment:empty}:name==='react'?{Component:class {}}:{});
   assert.deepEqual(loaded.inject,['slots','locale']);
   let slot;
   loaded.apply({slots:{inject:(name,f)=>{assert.equal(name,'conversation.view');f();},register:(options,component)=>{slot=options;assert.equal(typeof component,'function');}}});
   assert.equal(slot.id,'vsc-git-graph');assert.equal(slot.order,21);assert.equal(slot.label(),'Git Graph');assert.deepEqual(slot.inject(),{});
+});
+
+test('registered view contains failures locally and offers a fresh mount on retry', () => {
+  let registration, slotView;
+  new Function('window', bundle)({__ModuleLoader__: {load: value => { registration = value; }}});
+  class Component {
+    constructor(props) { this.props = props; }
+    setState(update) { this.state = {...this.state, ...(typeof update === 'function' ? update(this.state) : update)}; }
+  }
+  const jsx = (type, props, key) => ({type, props, key});
+  const loaded = registration.factory(name => name === 'react' ? {Component}
+    : name === 'react/jsx-runtime' ? {jsx, jsxs: jsx} : {});
+  loaded.apply({
+    locale: {getLocale: () => ({active: 'en'})},
+    slots: {inject: (_, callback) => callback(), register: (_, view) => { slotView = view; }},
+  });
+  const element = slotView({sessionId: 'session'});
+  const Boundary = element.type;
+  assert.ok(Boundary.prototype instanceof Component);
+  const boundary = new Boundary(element.props);
+  const first = boundary.render();
+  assert.equal(typeof first.type, 'function');
+  const failure = new TypeError('test render failure');
+  boundary.state = {...boundary.state, ...Boundary.getDerivedStateFromError(failure)};
+  const failed = boundary.render();
+  assert.equal(failed.props['data-git-view'], true);
+  assert.ok(failed.props.children.some(node => node.props.role === 'alert'));
+  assert.ok(failed.props.children.some(node => node.props.children === failure.message));
+  const originalError = console.error;
+  const errors = [];
+  console.error = (...args) => errors.push(args);
+  try { boundary.componentDidCatch(failure, {componentStack: 'test stack'}); }
+  finally { console.error = originalError; }
+  assert.equal(errors[0][1], failure);
+  assert.equal(errors[0][2], 'test stack');
+  failed.props.children.find(node => node.type === 'button').props.onClick();
+  const retried = boundary.render();
+  assert.equal(retried.type, first.type);
+  assert.notEqual(retried.key, first.key);
+  assert.equal(slotView({sessionId: 'other'}).key, 'other');
 });
 test('源码与运行时兼容红线保留',async()=>{
   for(const name of sourceNames){const text=await read('src/'+name+'.js');assert.ok(text.trim().length>50);assert.doesNotMatch(text,/\bimport\s|export default/);}
