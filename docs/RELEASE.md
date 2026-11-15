@@ -92,6 +92,9 @@ category: git
 description:
   en: 'Git Graph for DeepSeek Harness: a VS Code-style commit graph with branch switching, merge, rebase, tags, stash and inline diffs.'
   zh: 'DeepSeek Harness 的 Git 图谱：VS Code 风格的提交图，支持切换分支、合并、变基、标签、stash 与内嵌差异。'
+# 可选：预构建安装包（GitHub Release 托管、https、.tgz）。
+# 资产名不带版本号，配合 latest/download 才不会在下次发版后 404。
+tarball: https://github.com/Si-xiyu/dsh-git-graph/releases/latest/download/dsh-vsc-git-graph.tgz
 # 可选：GitHub 托管的位图，作为市场卡片图标（不写则用作者头像）
 # icon: https://raw.githubusercontent.com/Si-xiyu/dsh-git-graph/main/docs/assets/icon-180.png
 ```
@@ -189,3 +192,32 @@ README 里用相对路径引用。
 - [ ] 仓库满 1 天后提 awesome-dsh-plugin PR（`data/plugins/Si-xiyu__dsh-git-graph.yml`）
 - [ ] 收录后检查市场卡片（描述、分类、图标、截图）
 - [ ] 重写 README（第 4 节结构）
+
+---
+
+## 6. 自动化（已配置）
+
+仓库已带两条 GitHub Actions：
+
+**`.github/workflows/ci.yml`** —— push 到 main / PR 时：
+node 20 与 22 各跑一遍 `npm test`，再 `node scripts/build.mjs` 并校验 `lib/client.js`
+与 `src/` 一致（`git diff --exit-code`），最后 `npm pack --dry-run` 冒烟。
+
+**`.github/workflows/release.yml`** —— 推 `v*` 标签时：
+校验标签与 `package.json` 版本一致 → 测试 → `node scripts/dist.mjs` → 把 tarball 复制成
+**版本无关**的资产名 `dsh-vsc-git-graph.tgz` → 创建 GitHub Release（自动生成发布说明）。
+若仓库配置了 `NPM_TOKEN` secret，还会接着 `npm publish --access public --provenance`。
+
+### 发一个版本的标准流程
+
+```powershell
+npm version patch            # 0.1.1 -> 0.1.2，并打 tag
+git push --follow-tags       # 推提交与标签，CI 自动跑测试并创建 Release
+```
+
+### 让 CI 自动发 npm（可选）
+
+1. npmjs.com → Access Tokens → 生成 **Granular Access Token**（Packages: Read and write，
+   限定 `dsh-vsc-git-graph`）；
+2. GitHub → Settings → Secrets and variables → Actions → 新建 `NPM_TOKEN`；
+3. 之后推 `v*` 标签即自动发布，无需本机登录。

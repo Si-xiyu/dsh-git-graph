@@ -1,0 +1,53 @@
+name: Release
+
+# 打 v* 标签即自动：跑测试 -> 构建分发包 -> 创建 GitHub Release（附带版本无关的 tgz）
+# 若仓库配置了 NPM_TOKEN secret，还会自动发布到 npm。
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+  id-token: write # npm provenance（配置了 NPM_TOKEN 时使用）
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify tag matches package version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          version="$(node -p "require('./package.json').version")"
+          echo "tag=$tag version=$version"
+          test "$tag" = "$version"
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build distributable tarball
+        run: node scripts/dist.mjs
+
+      - name: Normalise asset name (version-free)
+        run: |
+          cp dist/dsh-vsc-git-graph-*.tgz dist/dsh-vsc-git-graph.tgz
+          ls -l dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/dsh-vsc-git-graph.tgz
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+
+      - name: Publish to npm
+        if: env.NODE_AUTH_TOKEN != ''
+        run: npm publish --access public --provenance
