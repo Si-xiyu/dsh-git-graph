@@ -95,6 +95,15 @@ dsh plugin --profile desktop add ./dsh-git-graph
 - `git` 在 `PATH` 中
 - Node.js ≥ 20（仅开发与构建需要）
 
+## 安全
+
+宿主侧在应用的 `webServer` 上注册 `/vsc-git-graph`，该路由会执行 `git`，包含写操作
+（切换分支、合并、提交、丢弃改动、推送）。`webServer` 的单条路由本身不带 Host/Origin
+检查、也不做浏览器鉴权，因此 handler 在方法校验之前、读取请求体之前、执行任何 `git`
+之前，先过应用 Connection 的信任闸门（`ctx.connection.requestRejection`）：跨站与 DNS
+重绑定请求返回 403，没有浏览器登录令牌凭据的调用返回 401。若所在组合没有提供
+`connection` 服务，则不注册可达的 handler（503），而不是留一条敞开的路由。
+
 ## 开发
 
 ```sh

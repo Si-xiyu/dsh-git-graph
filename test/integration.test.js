@@ -24,7 +24,7 @@ let server;
 let port;
 let routes;
 
-function captureRoutes() {
+function captureRoutes(connection = trustFence()) {
   const registrations = [];
   const ctx = {
     webServer: {
@@ -33,12 +33,18 @@ function captureRoutes() {
         return () => {};
       },
     },
+    connection,
     effect(cb) {
       return cb();
     },
   };
   apply(ctx);
   return registrations;
+}
+
+/** A Connection stub whose fence admits every request (the browser case). */
+function trustFence(rejection) {
+  return { requestRejection: () => rejection };
 }
 
 function gitRun(cwd, args) {
@@ -129,7 +135,7 @@ test("apply() skips gracefully when /vsc-git-graph is already registered (deskto
   };
   // Simulate the desktop app's built-in git viewer already owning the routes.
   ws.register({ kind: "exact", path: "/vsc-git-graph", handler: () => {} });
-  const ctx = { webServer: ws, effect(cb) { return cb(); } };
+  const ctx = { webServer: ws, connection: trustFence(), effect(cb) { return cb(); } };
   assert.doesNotThrow(() => apply(ctx)); // must not crash the layer
   assert.equal(exact.size, 1); // routes stay owned by the built-in plugin
 });

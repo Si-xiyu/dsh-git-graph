@@ -23,7 +23,7 @@ before(async()=>{
   await git('update-ref','refs/remotes/origin/main',merge);
   await writeFile(join(repo,'a.txt'),'stash\n');await git('stash','push','-m','saved');stash=await git('rev-parse','refs/stash');
   await writeFile(join(repo,'a.txt'),'dirty\n');
-  let handler;apply({effect:fn=>fn(),webServer:{register:r=>{handler=r.handler;return()=>{};}}});
+  let handler;apply({effect:fn=>fn(),webServer:{register:r=>{handler=r.handler;return()=>{};}},connection:{requestRejection:()=>undefined}});
   server=http.createServer(handler);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));url=`http://127.0.0.1:${server.address().port}/vsc-git-graph`;
 });
 after(async()=>{if(server)await new Promise(resolve=>server.close(resolve));if(repo)await rm(repo,{recursive:true,force:true,maxRetries:8,retryDelay:150});});

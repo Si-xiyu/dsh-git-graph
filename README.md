@@ -106,6 +106,18 @@ Machine-readable install notes for agents: [AGENTS.md](AGENTS.md).
 - `git` on your `PATH`
 - Node.js ≥ 20 (development and build only)
 
+## Security
+
+The host half registers `/vsc-git-graph` on the app's `webServer`, and that route runs
+`git` — including write operations (checkout, merge, commit, discard, push). A
+`webServer` route carries no Host/Origin check and no browser authentication by
+itself, so the handler runs the app's Connection trust fence
+(`ctx.connection.requestRejection`) **before** the method check, before reading the
+body, and before any `git` command: cross-site and DNS-rebinding requests answer 403,
+callers without the browser's login-token credential answer 401. A composition that
+provides no `connection` service registers no reachable handler (503) rather than an
+open one.
+
 ## Development
 
 ```sh
